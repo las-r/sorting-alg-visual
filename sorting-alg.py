@@ -2,7 +2,7 @@ import pygame
 import random
 
 # sorting alg visualizer
-# v2.0
+# v2.1
 # made by las-r on github
 
 # init
@@ -17,6 +17,7 @@ MAXOPC = 480
 # colors
 BGCOL = (0, 0, 0)
 ARRCOL = (255, 255, 255)
+SARRCOL = (0, 255, 0)
 TXCOL = (0, 255, 255)
 
 # helpers
@@ -25,8 +26,9 @@ def updateDisp(c = False):
     if c: 
         opc += 1
     scr.fill(BGCOL)
+    acol = SARRCOL if isSorted() else ARRCOL
     for i, a in enumerate(arr):
-        pygame.draw.rect(scr, ARRCOL, pygame.Rect(i * iw, HEIGHT - a * ih, iw, a * ih))
+        pygame.draw.rect(scr, acol, pygame.Rect(i * iw, HEIGHT - a * ih, iw, a * ih))
     scr.blit(font.render(f"Array length: {arrlen}", True, TXCOL), (5, 5))
     scr.blit(font.render(f"Operations per second: {ops}", True, TXCOL), (5, 20))
     scr.blit(font.render(f"Sorting: {sorting}", True, TXCOL), (5, 35))
@@ -160,9 +162,9 @@ scr = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Sorting Algorithm Playground")
 
 # variables
-arrlen = 40
+arrlen = 60
 iw, ih = WIDTH // arrlen, HEIGHT // arrlen
-ops = 60
+ops = 90
 algi = 0
 
 arr = [i for i in range(1, arrlen + 1)]
@@ -215,10 +217,10 @@ while run:
     # key held list
     keys = pygame.key.get_pressed()
     if keys[pygame.K_EQUALS]:
-        arrlen += 1
+        arrlen = min(arrlen + 1, WIDTH)
         reset()
     if keys[pygame.K_MINUS]:
-        arrlen = max(1, arrlen - 1)
+        arrlen = max(2, arrlen - 1)
         reset()
 
     # sorting algorithm
