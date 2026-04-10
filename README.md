@@ -1,8 +1,19 @@
-![GIF showing the program](https://github.com/user-attachments/assets/f10de022-2865-4266-8bac-7fba93cd9c0b)
+<img width="400" alt="Screenshot of the program" src="https://github.com/user-attachments/assets/125c4d36-654e-4d60-b7af-b046ff874772" />
 
 # Sorting Algorithm Visualizer
 A sorting algorithm visualizer made with Python.
 
-Quicksort is the default algorithm implemented in it.
+## Controls
+- **Spacebar**: Start / stop
+- **Mouse scroll**: Operations per second
+- **Plus and minus**: Array size
+- **Left and right arrows**: Cycle through algorithms
 
-Feel free to use, modify, and distribute this however you like! :)
+## Implemented Algorithms
+- Bubble sort
+- Gnome sort
+- Selection sort
+- Merge sort
+- Comb sort
+- Bogo sort
+- Bozo sort
